@@ -1,8 +1,11 @@
 # Contributor Covenant Code of Conduct
 
+This document describes the code of conduct for the Canada Covid Metrics in R Project contributors and maintainers.
+
 ## Our Pledge
 
-We as members, contributors, and leaders pledge to make participation in our
+In the interest of fostering an open and welcoming environment in the Canada Covid Metrics Project, 
+we as members, contributors, and leaders pledge to make participation in our
 community a harassment-free experience for everyone, regardless of age, body
 size, visible or invisible disability, ethnicity, sex characteristics, gender
 identity and expression, level of experience, education, socio-economic status,
@@ -59,8 +62,7 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at [INSERT CONTACT
-METHOD]. All complaints will be reviewed and investigated promptly and fairly.
+reported to the community leaders responsible for enforcement at adam.morphy@outlook.com. All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.
