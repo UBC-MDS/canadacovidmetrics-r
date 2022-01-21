@@ -70,15 +70,16 @@ library(canadacovidmetricsR)
 ## R ecosystem
 
 There are several packages for easy access to COVID-19 key metrics or
-data using different APIs, examples include -
-[COVID19](https://cran.r-project.org/web/packages/COVID19/index.html)
-using [John Hopkins University API](https://coronavirus.jhu.edu/about/)
--
-[COVID19.Analytics](https://cran.r-project.org/web/packages/covid19.analytics/)
-using [John Hopkins University API](https://coronavirus.jhu.edu/about/)
--
-[covid19br](https://cran.r-project.org/web/packages/covid19br/index.html)
-using [official Brazilian repository](https://covid.saude.gov.br/)
+data using different APIs, examples include
+
+-   [COVID19](https://cran.r-project.org/web/packages/COVID19/index.html)
+    using [John Hopkins University
+    API](https://coronavirus.jhu.edu/about/)
+-   [COVID19.Analytics](https://cran.r-project.org/web/packages/covid19.analytics/)
+    using [John Hopkins University
+    API](https://coronavirus.jhu.edu/about/)
+-   [covid19br](https://cran.r-project.org/web/packages/covid19br/index.html)
+    using [official Brazilian repository](https://covid.saude.gov.br/)
 
 To our knowledge, there is no similar package using [OpenCovid
 API](https://opencovid.ca/api/) in the R ecosystem.
@@ -92,7 +93,7 @@ API](https://opencovid.ca/api/) in the R ecosystem.
 
 We welcome and recognize all contributions. Please find the guide for
 contribution in [Contributing
-Document](https://github.com/UBC-MDS/canadacovidmetrics/blob/main/CONTRIBUTING.md).
+Document](https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/CONTRIBUTING.md).
 
 ## License
 
