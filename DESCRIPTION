@@ -15,7 +15,6 @@ Authors@R:
       person(given = "Luke",
            family = "Collins",
            role = c("aut"")))
-        
 Description: canadacovidmetricsR provides key metrics regarding COVID-19 situation in Canada across provinces using the [OpenCovid API](https://opencovid.ca/api/).
 License: MIT + file LICENSE
 Encoding: UTF-8
