@@ -2,12 +2,21 @@ Package: canadacovidmetricsR
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    c(person(given = "Brandon",
+           family = "Lam",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "ming0701@student.ubc.ca"),
+      person(given = "Adam",
+           family = "Morphy",
+           role = c("aut")),
+      person(given = "Valli",
+           family = "Akella",
+           role = c("aut")),
+      person(given = "Luke",
+           family = "Collins",
+           role = c("aut"")))
+        
+Description: canadacovidmetricsR provides key metrics regarding COVID-19 situation in Canada across provinces using the [OpenCovid API](https://opencovid.ca/api/).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
