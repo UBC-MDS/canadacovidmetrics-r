@@ -6,7 +6,37 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of canadacovidmetricsR is to …
+canadacovidmetricsR provides key metrics regarding COVID-19 situation in
+Canada across provinces using the [OpenCovid
+API](https://opencovid.ca/api/).
+
+## Summary
+
+This package allows users to obtain key metrics on COVID-19 situation in
+Canada at national or provincial level for a specific time period. The 4
+functions will return key metrics, including total cumulative cases,
+total cumulative deaths, total cumulative recovered cases and total
+cumulative vaccine completion, using data from [OpenCovid
+API](https://opencovid.ca/api/). The users may use the key metrics to
+conduct further analyses on COVID-19 situation in Canada.
+
+## Functions
+
+There are 4 functions in this package:
+
+-   `total_cumulative_cases` Query total cumulative cases with ability
+    to specify province and date range of returned data.
+
+-   `total_cumulative_deaths` Query total cumulative deaths with ability
+    to specify province and date range of returned data.
+
+-   `total_cumulative_recovered_cases` Query total cumulative recovered
+    cases with ability to specify province and date range of returned
+    data.
+
+-   `total_cumulative_vaccine_completion` Query total cumulative vaccine
+    completion with ability to specify province and date range of
+    returned data.
 
 ## Installation
 
@@ -33,29 +63,38 @@ library(canadacovidmetricsR)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## Usage
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+-   TODO
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+## R ecosystem
 
-You can also embed plots, for example:
+There are several packages for easy access to COVID-19 key metrics or
+data using different APIs, examples include -
+[COVID19](https://cran.r-project.org/web/packages/COVID19/index.html)
+using [John Hopkins University API](https://coronavirus.jhu.edu/about/)
+-
+[COVID19.Analytics](https://cran.r-project.org/web/packages/covid19.analytics/)
+using [John Hopkins University API](https://coronavirus.jhu.edu/about/)
+-
+[covid19br](https://cran.r-project.org/web/packages/covid19br/index.html)
+using [official Brazilian repository](https://covid.saude.gov.br/)
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+To our knowledge, there is no similar package using [OpenCovid
+API](https://opencovid.ca/api/) in the R ecosystem.
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+## Contributors
+
+-   Adam Morphy (@adammorphy)
+-   Brandon Lam (@ming0701)
+-   Lakshmi Santosha Valli Akella (@valli180)
+-   Luke Collins (@LukeAC)
+
+We welcome and recognize all contributions. Please find the guide for
+contribution in [Contributing
+Document](https://github.com/UBC-MDS/canadacovidmetrics/blob/main/CONTRIBUTING.md).
+
+## License
+
+`canadacovidmetricsR` was created by the Contributors. It is licensed
+under the terms of the MIT license.
