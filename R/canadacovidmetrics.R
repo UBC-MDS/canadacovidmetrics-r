@@ -1,3 +1,16 @@
+# 'Sample Usage of request library
+# request is built on httr and can be used to create requests to download data from the web
+# We can auto execute 'request' with pipes.
+# Build api route as follows
+# api('https://api.github.com/') %>% http()
+# or make HTTPS request as follows
+# 'https://api.github.com/' %>% api()
+# api("http://api.plos.org/search") %>%
+# api_query(q = ecology, wt = json, fl = 'id,journal') %>%
+# peep
+# 
+
+
 #' Check date format is compatible with API call
 #'
 #' @param datestr Date string to be checked
