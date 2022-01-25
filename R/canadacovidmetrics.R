@@ -80,7 +80,7 @@ loc_format_check <- function(locstr) {
 #' @examples
 #' total_cumulative_cases(loc = "ON", before = "2021-12-31")
 #' total_cumulative_cases(loc = "prov", date = "2021-09-01")
-total_cumulative_cases <- function(loc='prov', date=None, after='2020-01-01', before=today){}
+total_cumulative_cases <- function(loc='prov', date=NA, after='2020-01-01', before=today){}
 
 
 #' Query total cumulative deaths with ability to specify
@@ -100,7 +100,7 @@ total_cumulative_cases <- function(loc='prov', date=None, after='2020-01-01', be
 #' @examples
 #' total_cumulative_deaths(loc = "ON", before = "2021-12-31")
 #' total_cumulative_deaths(loc = "prov", date = "2021-09-01")
-total_cumulative_deaths <- function(loc='prov', date=None, after='2020-01-01', before=today){}
+total_cumulative_deaths <- function(loc='prov', date=NA, after='2020-01-01', before=today){}
 
 
 #' Query total cumulative recovered cases with ability to specify
@@ -120,7 +120,7 @@ total_cumulative_deaths <- function(loc='prov', date=None, after='2020-01-01', b
 #' @examples
 #' total_cumulative_recovered_cases(loc = "ON", before = "2021-12-31")
 #' total_cumulative_recovered_cases(loc = "prov", date = "2021-09-01")
-total_cumulative_recovered_cases <- function(loc='prov', date=None, after='2020-01-01', before=today){}
+total_cumulative_recovered_cases <- function(loc='prov', date=NA, after='2020-01-01', before=today){}
 
 
 #' Query total cumulative vaccine completion with ability to specify
