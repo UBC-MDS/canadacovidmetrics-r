@@ -57,6 +57,7 @@ loc_format_check <- function(locstr) {
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
+#' @param datetime_type boolean: Return date column as a character (FALSE) or as a Date (TRUE).
 #'
 #' @return Dataframe containing content of API response.
 #' @export
@@ -77,6 +78,7 @@ total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', be
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
+#' @param datetime_type boolean: Return date column as a character (FALSE) or as a Date (TRUE).
 #'
 #' @return Dataframe containing content of API response.
 #' @export
@@ -97,6 +99,7 @@ total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', b
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
+#' @param datetime_type boolean: Return date column as a character (FALSE) or as a Date (TRUE).
 #'
 #' @return Dataframe containing content of API response.
 #' @export
@@ -117,6 +120,7 @@ total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
+#' @param datetime_type boolean: Return date column as a character (FALSE) or as a Date (TRUE).
 #'
 #' @return Dataframe containing content of API response.
 #' @export
@@ -124,7 +128,7 @@ total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-
 #' @examples
 #' total_cumulative_vaccine_completion(loc = "ON", before = "2021-12-31")
 #' total_cumulative_vaccine_completion(loc = "prov", date = "2021-09-01")
-total_cumulative_vaccine_completion <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){
+total_cumulative_vaccine_completion <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=FALSE){
 
   loc_format_check(loc)  # check location is valid
 
@@ -141,7 +145,11 @@ total_cumulative_vaccine_completion <- function(loc='prov', date=NULL, after='20
   # Get Json Object
   jsonData = GET(url)
   json_body = rawToChar(jsonData$content)
-  df = fromJSON(json_body)
+  df = fromJSON(json_body)$cvaccine
+
+  if(datetime_type){
+    df$date_vaccine_completed = as.Date(df$date_vaccine_completed, format = "%d-%m-%y")
+  }
 
   return df
 
