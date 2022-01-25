@@ -1,3 +1,4 @@
+
 # 'Sample Usage of request library
 # request is built on httr and can be used to create requests to download data from the web
 # We can auto execute 'request' with pipes.
@@ -26,7 +27,6 @@ date_format_check <- function(datestr){
     stop("Date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
 }
-
 
 
 #' Check province/location format is compatible with API call
@@ -65,7 +65,10 @@ loc_format_check <- function(locstr) {
 #' @examples
 #' total_cumulative_cases(loc = "ON", before = "2021-12-31")
 #' total_cumulative_cases(loc = "prov", date = "2021-09-01")
+
 total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
+
+
 
 
 #' Query total cumulative deaths with ability to specify
@@ -86,8 +89,8 @@ total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', be
 #' @examples
 #' total_cumulative_deaths(loc = "ON", before = "2021-12-31")
 #' total_cumulative_deaths(loc = "prov", date = "2021-09-01")
-total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
 
+total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
 
 #' Query total cumulative recovered cases with ability to specify
 #' location and date range of returned data.
@@ -107,8 +110,25 @@ total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', b
 #' @examples
 #' total_cumulative_recovered_cases(loc = "ON", before = "2021-12-31")
 #' total_cumulative_recovered_cases(loc = "prov", date = "2021-09-01")
-total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
-
+total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){
+  
+  loc_format_check(loc)
+  
+  if (!is.null(date)) {
+    date_format_check(date)
+    url <- sprintf("https://api.opencovid.ca/timeseries?stat=recovered&loc=%s&date=%s", loc, date)
+  } else {
+    date_format_check(after)
+    date_format_check(before)
+    url <- sprintf("https://api.opencovid.ca/timeseries?stat=recovered&loc=%s&after=%s&before=%s", loc, after, before)
+  }
+  
+  raw_json <- GET(url)
+  json_string <- content(raw_json, as="text")
+  df <- fromJSON(json_string)$recovered
+  
+  invisible(df)
+}
 
 #' Query total cumulative vaccine completion with ability to specify
 #' location and date range of returned data.
