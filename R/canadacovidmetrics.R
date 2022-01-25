@@ -8,7 +8,15 @@
 # api("http://api.plos.org/search") %>%
 # api_query(q = ecology, wt = json, fl = 'id,journal') %>%
 # peep
-# 
+#
+
+# Import Dependencies
+library(httr)
+library(jsonlite)
+library(testthat)
+
+# Set Current Date 'YYYY-MM-DD'
+today <- Sys.Date()
 
 
 #' Check date format is compatible with API call
@@ -16,12 +24,22 @@
 #' @param datestr Date string to be checked
 #'
 #' @return None
-#' @export 
+#' @export
 #'
 #' @examples
 #' date_format_check("2021-12-31")
 #' date_format_check("31-12-2021")
-date_format_check <- function(datestr){}
+date_format_check <- function(datestr){
+
+  format_ymd = "%Y-%m-%d"
+  format_dmy = "%d-%m-%Y"
+
+  test_that("The given date is an unacceptable format for the API", {
+    expect_true( !is.na(as.Date(datestr, format_ymd)))
+    expect_true(!is.na(as.Date(datestr, format_ymd)))
+  })
+
+}
 
 
 #' Check province/location format is compatible with API call
@@ -29,12 +47,20 @@ date_format_check <- function(datestr){}
 #' @param locstr Location string to be checked
 #'
 #' @return None
-#' @export 
+#' @export
 #'
 #' @examples
 #' loc_format_check("prov")
 #' loc_format_check("ON")
-loc_format_check <- function(locstr) {}
+loc_format_check <- function(locstr) {
+
+  format_loc = c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
+
+  test_that("Value passed for loc argument is not recognized. Must be one of: 'prov', 'canada', or a two-letter capitalized province code", {
+    expect_true(locstr %in% format_loc)
+  })
+
+}
 
 
 #' Query total cumulative cases with ability to specify
@@ -43,13 +69,13 @@ loc_format_check <- function(locstr) {}
 #' @param loc string: Specify geographic filter and aggregation of returned data.
 #' Valid loc arguments are: 'canada', 'prov' and two-letter
 #' province codes (e.g. 'ON', 'BC', etc.)
-#' @param date string: If not None, return data from the specified date YYYY-MM-DD. 
+#' @param date string: If not None, return data from the specified date YYYY-MM-DD.
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
 #'
 #' @return Dataframe containing content of API response.
-#' @export 
+#' @export
 #'
 #' @examples
 #' total_cumulative_cases(loc = "ON", before = "2021-12-31")
@@ -63,13 +89,13 @@ total_cumulative_cases <- function(loc='prov', date=None, after='2020-01-01', be
 #' @param loc string: Specify geographic filter and aggregation of returned data.
 #' Valid loc arguments are: 'canada', 'prov' and two-letter
 #' province codes (e.g. 'ON', 'BC', etc.)
-#' @param date string: If not None, return data from the specified date YYYY-MM-DD. 
+#' @param date string: If not None, return data from the specified date YYYY-MM-DD.
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
 #'
 #' @return Dataframe containing content of API response.
-#' @export 
+#' @export
 #'
 #' @examples
 #' total_cumulative_deaths(loc = "ON", before = "2021-12-31")
@@ -83,13 +109,13 @@ total_cumulative_deaths <- function(loc='prov', date=None, after='2020-01-01', b
 #' @param loc string: Specify geographic filter and aggregation of returned data.
 #' Valid loc arguments are: 'canada', 'prov' and two-letter
 #' province codes (e.g. 'ON', 'BC', etc.)
-#' @param date string: If not None, return data from the specified date YYYY-MM-DD. 
+#' @param date string: If not None, return data from the specified date YYYY-MM-DD.
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
 #'
 #' @return Dataframe containing content of API response.
-#' @export 
+#' @export
 #'
 #' @examples
 #' total_cumulative_recovered_cases(loc = "ON", before = "2021-12-31")
@@ -103,15 +129,39 @@ total_cumulative_recovered_cases <- function(loc='prov', date=None, after='2020-
 #' @param loc string: Specify geographic filter and aggregation of returned data.
 #' Valid loc arguments are: 'canada', 'prov' and two-letter
 #' province codes (e.g. 'ON', 'BC', etc.)
-#' @param date string: If not None, return data from the specified date YYYY-MM-DD. 
+#' @param date string: If not None, return data from the specified date YYYY-MM-DD.
 #' Superceeds 'after' and 'before' parameters.
 #' @param after string: Return data on and after the specified date YYYY-MM-DD.
 #' @param before string: Return data on and before the specified date YYYY-MM-DD.
 #'
 #' @return Dataframe containing content of API response.
-#' @export 
+#' @export
 #'
 #' @examples
 #' total_cumulative_vaccine_completion(loc = "ON", before = "2021-12-31")
 #' total_cumulative_vaccine_completion(loc = "prov", date = "2021-09-01")
-total_cumulative_vaccine_completion <- function(loc='prov', date=None, after='2020-01-01', before=today){}
+total_cumulative_vaccine_completion <- function(loc='prov', date=NA, after='2020-01-01', before=today){
+
+
+  loc_format_check(loc)  # check location is valid
+
+  if(date != NA){
+    date_format_check(date)  # check date is valid
+    url = paste0('https://api.opencovid.ca/timeseries?stat=cvaccine&loc=', loc , '&date=', date)
+  }else{
+
+    date_format_check(before)  # check before-date is valid
+    date_format_check(after)  # check after-date is valid
+    url = paste0('https://api.opencovid.ca/timeseries?stat=cvaccine&loc=', loc , '&after=', after, '&before=', before)
+  }
+
+  # Get Json Object
+  jsonData = GET(url)
+  json_body = rawToChar(jsonData$content)
+  df = fromJSON(json_body)
+
+  return df
+
+}
+
+
