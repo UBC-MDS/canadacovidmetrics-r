@@ -10,15 +10,6 @@
 # peep
 #
 
-# Import Dependencies
-library(httr)
-library(jsonlite)
-library(testthat)
-
-# Set Current Date 'YYYY-MM-DD'
-today <- Sys.Date()
-
-
 #' Check date format is compatible with API call
 #'
 #' @param datestr Date string to be checked
@@ -30,16 +21,12 @@ today <- Sys.Date()
 #' date_format_check("2021-12-31")
 #' date_format_check("31-12-2021")
 date_format_check <- function(datestr){
-
-  format_ymd = "%Y-%m-%d"
-  format_dmy = "%d-%m-%Y"
-
-  test_that("The given date is an unacceptable format for the API", {
-    expect_true( !is.na(as.Date(datestr, format_ymd)))
-    expect_true(!is.na(as.Date(datestr, format_ymd)))
-  })
-
+  date_fmt <- tryCatch(!is.na(as.Date(datestr, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
+  if (!date_fmt){
+    stop("Date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
+  }
 }
+
 
 
 #' Check province/location format is compatible with API call
@@ -53,13 +40,10 @@ date_format_check <- function(datestr){
 #' loc_format_check("prov")
 #' loc_format_check("ON")
 loc_format_check <- function(locstr) {
-
-  format_loc = c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
-
-  test_that("Value passed for loc argument is not recognized. Must be one of: 'prov', 'canada', or a two-letter capitalized province code", {
-    expect_true(locstr %in% format_loc)
-  })
-
+  format_loc <- c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
+  if (!locstr %in% format_loc){
+    stop("Value passed for loc argument is not recognized. Must be one of: 'prov', 'canada', or a two-letter capitalized province code")
+  }
 }
 
 
@@ -80,7 +64,7 @@ loc_format_check <- function(locstr) {
 #' @examples
 #' total_cumulative_cases(loc = "ON", before = "2021-12-31")
 #' total_cumulative_cases(loc = "prov", date = "2021-09-01")
-total_cumulative_cases <- function(loc='prov', date=NA, after='2020-01-01', before=today){}
+total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
 
 
 #' Query total cumulative deaths with ability to specify
@@ -100,7 +84,7 @@ total_cumulative_cases <- function(loc='prov', date=NA, after='2020-01-01', befo
 #' @examples
 #' total_cumulative_deaths(loc = "ON", before = "2021-12-31")
 #' total_cumulative_deaths(loc = "prov", date = "2021-09-01")
-total_cumulative_deaths <- function(loc='prov', date=NA, after='2020-01-01', before=today){}
+total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
 
 
 #' Query total cumulative recovered cases with ability to specify
@@ -120,7 +104,7 @@ total_cumulative_deaths <- function(loc='prov', date=NA, after='2020-01-01', bef
 #' @examples
 #' total_cumulative_recovered_cases(loc = "ON", before = "2021-12-31")
 #' total_cumulative_recovered_cases(loc = "prov", date = "2021-09-01")
-total_cumulative_recovered_cases <- function(loc='prov', date=NA, after='2020-01-01', before=today){}
+total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
 
 
 #' Query total cumulative vaccine completion with ability to specify
@@ -140,12 +124,11 @@ total_cumulative_recovered_cases <- function(loc='prov', date=NA, after='2020-01
 #' @examples
 #' total_cumulative_vaccine_completion(loc = "ON", before = "2021-12-31")
 #' total_cumulative_vaccine_completion(loc = "prov", date = "2021-09-01")
-total_cumulative_vaccine_completion <- function(loc='prov', date=NA, after='2020-01-01', before=today){
-
+total_cumulative_vaccine_completion <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){
 
   loc_format_check(loc)  # check location is valid
 
-  if(date != NA){
+  if(date != NULL){
     date_format_check(date)  # check date is valid
     url = paste0('https://api.opencovid.ca/timeseries?stat=cvaccine&loc=', loc , '&date=', date)
   }else{
