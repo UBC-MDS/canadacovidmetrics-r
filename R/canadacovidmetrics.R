@@ -90,7 +90,32 @@ total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', be
 #' total_cumulative_deaths(loc = "ON", before = "2021-12-31")
 #' total_cumulative_deaths(loc = "prov", date = "2021-09-01")
 
-total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
+total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=FALSE){}
+
+  loc_format_check(loc)
+
+  if(date != NULL){
+    date_format_check(date)  # check date is valid
+    url = paste0('https://api.opencovid.ca/timeseries?stat=mortality&loc=', loc , '&date=', date)
+  }else{
+
+    date_format_check(before)  # check before-date is valid
+    date_format_check(after)  # check after-date is valid
+    url = paste0('https://api.opencovid.ca/timeseries?stat=mortality&loc=', loc , '&after=', after, '&before=', before)
+  }
+
+  # Get Json Object
+  jsonData = GET(url)
+  json_body = rawToChar(jsonData$content)
+  df = fromJSON(json_body)$mortality
+
+  if(datetime_type){
+    df$date_death_report = as.Date(df$date_death_report, format = "%d-%m-%y")
+  }
+
+  return df
+
+}
 
 #' Query total cumulative recovered cases with ability to specify
 #' location and date range of returned data.
