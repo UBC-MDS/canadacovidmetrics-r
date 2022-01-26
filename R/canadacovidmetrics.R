@@ -127,7 +127,7 @@ total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-
   json_string <- content(raw_json, as="text")
   df <- fromJSON(json_string)$recovered
   
-  invisible(df)
+  return(df)
 }
 
 #' Query total cumulative vaccine completion with ability to specify
@@ -152,26 +152,26 @@ total_cumulative_vaccine_completion <- function(loc='prov', date=NULL, after='20
 
   loc_format_check(loc)  # check location is valid
 
-  if(date != NULL){
+  if(!is.null(date)){
     date_format_check(date)  # check date is valid
-    url = paste0('https://api.opencovid.ca/timeseries?stat=cvaccine&loc=', loc , '&date=', date)
+    url <- paste0('https://api.opencovid.ca/timeseries?stat=cvaccine&loc=', loc , '&date=', date)
   }else{
 
     date_format_check(before)  # check before-date is valid
     date_format_check(after)  # check after-date is valid
-    url = paste0('https://api.opencovid.ca/timeseries?stat=cvaccine&loc=', loc , '&after=', after, '&before=', before)
+    url <- paste0('https://api.opencovid.ca/timeseries?stat=cvaccine&loc=', loc , '&after=', after, '&before=', before)
   }
 
   # Get Json Object
-  jsonData = GET(url)
-  json_body = rawToChar(jsonData$content)
-  df = fromJSON(json_body)$cvaccine
+  jsonData <- GET(url)
+  json_body <- rawToChar(jsonData$content)
+  df <- fromJSON(json_body)$cvaccine
 
   if(datetime_type){
     df$date_vaccine_completed = as.Date(df$date_vaccine_completed, format = "%d-%m-%y")
   }
 
-  return df
+  return(df)
 
 }
 
