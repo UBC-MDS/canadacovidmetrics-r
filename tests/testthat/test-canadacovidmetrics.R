@@ -5,7 +5,7 @@ test_that("Function returns a dataframe", {
   # add your function here
 
   # total_cumulative_cases
-
+  expect_true(is.data.frame(total_cumulative_cases()))
 
   # total_cumulative_deaths
   expect_true(is.data.frame(total_cumulative_deaths()))
@@ -20,6 +20,7 @@ test_that("Function default args return non-empty dataframe", {
   # add your function here
 
   # total_cumulative_cases
+  expect_false(is.null(dim(total_cumulative_cases())))
 
 
   # total_cumulative_deaths
@@ -36,8 +37,8 @@ test_that("Function returns dataframe with correct columns", {
 
 
   # total_cumulative_cases
-
-
+  expect_true(all(colnames(total_cumulative_cases()) == c("cases", "cumulative_cases", "date_report", "province")))
+  
   # total_cumulative_deaths
   expect_true(all(colnames(total_cumulative_deaths()) == c("cumulative_deaths", "date_death_report", "deaths", "province")))
 
