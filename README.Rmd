@@ -29,13 +29,13 @@ This package allows users to obtain key metrics on COVID-19 situation in Canada 
 
 There are 4 functions in this package:
 
--   `total_cumulative_cases` Query total cumulative cases with ability to specify province and date range of returned data.
+-   `get_cases` Query total cumulative cases with ability to specify province and date range of returned data.
 
--   `total_cumulative_deaths` Query total cumulative deaths with ability to specify province and date range of returned data.
+-   `get_deaths` Query total cumulative deaths with ability to specify province and date range of returned data.
 
--   `total_cumulative_recovered_cases` Query total cumulative recovered cases with ability to specify province and date range of returned data.
+-   `get_recoveries` Query total cumulative recovered cases with ability to specify province and date range of returned data.
 
--   `total_cumulative_vaccine_completion` Query total cumulative vaccine completion with ability to specify province and date range of returned data.
+-   `get_vaccinations` Query total cumulative vaccine completion with ability to specify province and date range of returned data.
 
 ## Installation
 
@@ -58,7 +58,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(canadacovidmetricsR)
-total_cumulative_cases(loc = "BC")
+get_cases(loc = "BC")
 ```
 
 ## Usage

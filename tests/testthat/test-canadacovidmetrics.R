@@ -4,67 +4,67 @@ library(testthat)
 
 test_that("Function returns a dataframe", {
 
-  # total_cumulative_recovered_cases
-  expect_true(is.data.frame(total_cumulative_recovered_cases()))
+  # get_recoveries
+  expect_true(is.data.frame(get_recoveries()))
 
-  # total_cumulative_cases
-  expect_true(is.data.frame(total_cumulative_cases()))
+  # get_cases
+  expect_true(is.data.frame(get_cases()))
 
-  # total_cumulative_deaths
-  expect_true(is.data.frame(total_cumulative_deaths()))
+  # get_deaths
+  expect_true(is.data.frame(get_deaths()))
 
-  # total_cumulative_vaccine_completion
-  expect_true(is.data.frame(total_cumulative_cases()))
+  # get_vaccinations
+  expect_true(is.data.frame(get_cases()))
 
 })
 
 test_that("Function default args return non-empty dataframe", {
   
-  # total_cumulative_recovered_cases
-  expect_false(is.null(dim(total_cumulative_recovered_cases())))
+  # get_recoveries
+  expect_false(is.null(dim(get_recoveries())))
 
-  # total_cumulative_cases
-  expect_false(is.null(dim(total_cumulative_cases())))
+  # get_cases
+  expect_false(is.null(dim(get_cases())))
 
-  # total_cumulative_deaths
-  expect_false(is.null(dim(total_cumulative_deaths())))
+  # get_deaths
+  expect_false(is.null(dim(get_deaths())))
 
-  # total_cumulative_vaccine_completion
-  expect_false(is.null(dim(total_cumulative_vaccine_completion())))
+  # get_vaccinations
+  expect_false(is.null(dim(get_vaccinations())))
 
 })
 
 test_that("Function returns dataframe with correct columns", {
     
-  # total_cumulative_recovered_cases
-  expect_true(all(colnames(total_cumulative_recovered_cases()) == c("cumulative_recovered", "date_recovered", "province", "recovered")))
+  # get_recoveries
+  expect_true(all(colnames(get_recoveries()) == c("cumulative_recovered", "date", "province", "recovered")))
 
-  # total_cumulative_cases
-  expect_true(all(colnames(total_cumulative_cases()) == c("cases", "cumulative_cases", "date_report", "province")))
+  # get_cases
+  expect_true(all(colnames(get_cases()) == c("cases", "cumulative_cases", "date", "province")))
 
-  # total_cumulative_deaths
-  expect_true(all(colnames(total_cumulative_deaths()) == c("cumulative_deaths", "date_death_report", "deaths", "province")))
+  # get_deaths
+  expect_true(all(colnames(get_deaths()) == c("cumulative_deaths", "date", "deaths", "province")))
 
-  # total_cumulative_vaccine_completion
-  expect_true(all(colnames(total_cumulative_vaccine_completion()) == c("cumulative_cvaccine", "cvaccine", "date_vaccine_completed", "province")))
+  # get_vaccinations
+  expect_true(all(colnames(get_vaccinations()) == c("cumulative_cvaccine", "cvaccine", "date", "province")))
 })
 
 test_that("Function returns data filtered to specified date", {
     
-  # total_cumulative_recovered_cases
-  expect_true(length(unique(total_cumulative_recovered_cases(date='01-11-2021')$date, datetime_type=FALSE)) == 1 &&
-                '01-11-2021' %in% unique(total_cumulative_recovered_cases(date='01-11-2021', datetime_type=FALSE)$date))
+  # get_recoveries
+  expect_true(length(unique(get_recoveries(date='01-11-2021')$date, datetime_type=FALSE)) == 1 &&
+                '01-11-2021' %in% unique(get_recoveries(date='01-11-2021', datetime_type=FALSE)$date))
 
-  # total_cumulative_cases
-  expect_true(length(unique(total_cumulative_cases(date='01-11-2021', datetime_type=FALSE)$date)) == 1 &&
-                '01-11-2021' %in% unique(total_cumulative_cases(date='01-11-2021', datetime_type=FALSE)$date))
+  # get_cases
+  expect_true(length(unique(get_cases(date='01-11-2021', datetime_type=FALSE)$date)) == 1 &&
+                '01-11-2021' %in% unique(get_cases(date='01-11-2021', datetime_type=FALSE)$date))
 
-  # total_cumulative_deaths
-  expect_true(length(unique(total_cumulative_deaths(date='01-11-2021', datetime_type=FALSE)$date)) == 1 &&
-                '01-11-2021' %in% unique(total_cumulative_deaths(date='01-11-2021', datetime_type=FALSE)$date))
+  # get_deaths
+  expect_true(length(unique(get_deaths(date='01-11-2021', datetime_type=FALSE)$date)) == 1 &&
+                '01-11-2021' %in% unique(get_deaths(date='01-11-2021', datetime_type=FALSE)$date))
 
-  # total_cumulative_vaccine_completion
-  expect_true(length(unique(total_cumulative_vaccine_completion(date='01-11-2021', datetime_type=FALSE)$date)) == 1 &&
-                '01-11-2021' %in% unique(total_cumulative_vaccine_completion(date='01-11-2021', datetime_type=FALSE)$date))
+  # get_vaccinations
+  expect_true(length(unique(get_vaccinations(date='01-11-2021', datetime_type=FALSE)$date)) == 1 &&
+                '01-11-2021' %in% unique(get_vaccinations(date='01-11-2021', datetime_type=FALSE)$date))
 
 })
