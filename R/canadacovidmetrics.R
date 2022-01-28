@@ -68,7 +68,28 @@ loc_format_check <- function(locstr) {
 #' total_cumulative_cases(loc = "ON", before = "2021-12-31")
 #' total_cumulative_cases(loc = "prov", date = "2021-09-01")
 
-total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){}
+total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date()){
+  loc_format_check(loc)
+  
+  if (!is.null(date)) {
+    date_format_check(date)
+    url <- sprintf("https://api.opencovid.ca/timeseries?stat=cases&loc=%s&date=%s", loc, date)
+  } else {
+    date_format_check(after)
+    date_format_check(before)
+    url <- sprintf("https://api.opencovid.ca/timeseries?stat=cases&loc=%s&after=%s&before=%s",loc, after, before)
+  }
+  
+  raw_json <- GET(url)
+  json_string <- content(raw_json, as="text")
+  df <- fromJSON(json_string)$cases
+  
+  if(datetime_type){
+    df$date_case_report = as.Date(df$date_case_report, format = "%d-%m-%y")
+  }
+  
+  return(df)
+}
 
 
 
