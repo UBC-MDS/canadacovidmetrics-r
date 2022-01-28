@@ -18,10 +18,10 @@ library(jsonlite)
 #' @export
 #'
 #' @examples
-#' total_cumulative_cases(loc = "ON", before = "2021-12-31")
-#' total_cumulative_cases(loc = "prov", date = "2021-09-01")
+#' get_cases(loc = "ON", before = "2021-12-31")
+#' get_cases(loc = "prov", date = "2021-09-01")
 
-total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
+get_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
 
   #' Check province/location format is compatible with API call
   format_loc <- c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
@@ -59,8 +59,10 @@ total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', be
   json_string <- content(raw_json, as="text")
   df <- fromJSON(json_string)$cases
 
+  colnames(df)[which(names(df) == "date_report")] <- "date"
+
   if(datetime_type){
-    df$date_report = as.Date(df$date_report, format = "%d-%m-%y")
+    df$date = as.Date(df$date, format = "%d-%m-%y")
   }
     
   return(df)
@@ -83,10 +85,10 @@ total_cumulative_cases <- function(loc='prov', date=NULL, after='2020-01-01', be
 #' @export
 #'
 #' @examples
-#' total_cumulative_deaths(loc = "ON", before = "2021-12-31")
-#' total_cumulative_deaths(loc = "prov", date = "2021-09-01")
+#' get_deaths(loc = "ON", before = "2021-12-31")
+#' get_deaths(loc = "prov", date = "2021-09-01")
 
-total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
+get_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
   
   #' Check province/location format is compatible with API call
   format_loc <- c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
@@ -124,8 +126,10 @@ total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', b
   json_string <- content(raw_json, as="text")
   df <- fromJSON(json_string)$mortality
 
+  colnames(df)[which(names(df) == "date_death_report")] <- "date"
+
   if(datetime_type){
-    df$date_death_report = as.Date(df$date_death_report, format = "%d-%m-%y")
+    df$date = as.Date(df$date, format = "%d-%m-%y")
   }
     
   return(df)
@@ -148,9 +152,9 @@ total_cumulative_deaths <- function(loc='prov', date=NULL, after='2020-01-01', b
 #' @export
 #'
 #' @examples
-#' total_cumulative_recovered_cases(loc = "ON", before = "2021-12-31")
-#' total_cumulative_recovered_cases(loc = "prov", date = "2021-09-01")
-total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
+#' get_recoveries(loc = "ON", before = "2021-12-31")
+#' get_recoveries(loc = "prov", date = "2021-09-01")
+get_recoveries <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
 
   #' Check province/location format is compatible with API call
   format_loc <- c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
@@ -187,9 +191,11 @@ total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-
   raw_json <- GET(url)
   json_string <- content(raw_json, as="text")
   df <- fromJSON(json_string)$recovered
+
+  colnames(df)[which(names(df) == "date_recovered")] <- "date"
   
   if(datetime_type){
-    df$date_recovered = as.Date(df$date_recovered, format = "%d-%m-%y")
+    df$date = as.Date(df$date, format = "%d-%m-%y")
   }
     
   return(df)
@@ -211,9 +217,9 @@ total_cumulative_recovered_cases <- function(loc='prov', date=NULL, after='2020-
 #' @export
 #'
 #' @examples
-#' total_cumulative_vaccine_completion(loc = "ON", before = "2021-12-31")
-#' total_cumulative_vaccine_completion(loc = "prov", date = "2021-09-01")
-total_cumulative_vaccine_completion <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
+#' get_vaccinations(loc = "ON", before = "2021-12-31")
+#' get_vaccinations(loc = "prov", date = "2021-09-01")
+get_vaccinations <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
 
   #' Check province/location format is compatible with API call
   format_loc <- c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
@@ -252,8 +258,10 @@ total_cumulative_vaccine_completion <- function(loc='prov', date=NULL, after='20
   json_body <- rawToChar(jsonData$content)
   df <- fromJSON(json_body)$cvaccine
 
+  colnames(df)[which(names(df) == "date_vaccine_completed")] <- "date"
+
   if(datetime_type){
-    df$date_vaccine_completed = as.Date(df$date_vaccine_completed, format = "%d-%m-%y")
+    df$date = as.Date(df$date, format = "%d-%m-%y")
   }
 
   return(df)

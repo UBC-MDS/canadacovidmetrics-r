@@ -24,17 +24,17 @@ conduct further analyses on COVID-19 situation in Canada.
 
 There are 4 functions in this package:
 
--   `total_cumulative_cases` Query total cumulative cases with ability
+-   `get_cases` Query total cumulative cases with ability
     to specify province and date range of returned data.
 
--   `total_cumulative_deaths` Query total cumulative deaths with ability
+-   `get_deaths` Query total cumulative deaths with ability
     to specify province and date range of returned data.
 
--   `total_cumulative_recovered_cases` Query total cumulative recovered
+-   `get_recoveries` Query total cumulative recovered
     cases with ability to specify province and date range of returned
     data.
 
--   `total_cumulative_vaccine_completion` Query total cumulative vaccine
+-   `get_vaccinations` Query total cumulative vaccine
     completion with ability to specify province and date range of
     returned data.
 
