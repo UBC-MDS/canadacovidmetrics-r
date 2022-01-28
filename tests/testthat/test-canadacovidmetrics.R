@@ -51,7 +51,8 @@ test_that("Function returns data filtered to specified date", {
   # add your function here
 
   # total_cumulative_cases
-
+  expect_true(length(unique(total_cumulative_cases(date='01-11-2021')$date)) == 1 &&
+                '01-11-2021' %in% unique(total_cumulative_cases(date='01-11-2021')$date))
 
   # total_cumulative_deaths
   expect_true(length(unique(total_cumulative_deaths(date='01-11-2021')$date)) == 1 &&
