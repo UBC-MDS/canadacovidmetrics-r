@@ -1,3 +1,7 @@
+library(httr)
+library(jsonlite)
+library(testthat)
+
 test_that("Function returns a dataframe", {
 
   # total_cumulative_recovered_cases
