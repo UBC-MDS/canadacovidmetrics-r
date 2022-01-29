@@ -52,7 +52,7 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("UBC-MDS/canadacovidmetricsR")
 ```
 
-## Example
+## Usage and Example
 
 This is a basic example which shows you how to solve a common problem:
 
@@ -60,10 +60,6 @@ This is a basic example which shows you how to solve a common problem:
 library(canadacovidmetricsR)
 get_cases(loc = "BC")
 ```
-
-## Usage
-
--   TODO
 
 ## R ecosystem
 
