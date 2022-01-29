@@ -54,19 +54,14 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("UBC-MDS/canadacovidmetricsR")
 ```
 
-## Example
+## Usage and Example
 
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(canadacovidmetricsR)
 get_cases(loc = "BC")
-## basic example code
 ```
-
-## Usage
-
--   TODO
 
 ## R ecosystem
 
