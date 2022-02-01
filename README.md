@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/UBC-MDS/canadacovidmetricsR/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/canadacovidmetricsR/actions)
+[![codecov](https://codecov.io/gh/UBC-MDS/canadacovidmetricsR/branch/main/graph/badge.svg?token=QITVZBTZBU)](https://codecov.io/gh/UBC-MDS/canadacovidmetricsR)
 <!-- badges: end -->
 
 canadacovidmetricsR provides key metrics regarding COVID-19 situation in
