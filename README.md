@@ -4,6 +4,8 @@
 # canadacovidmetricsR
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/UBC-MDS/canadacovidmetricsR/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/canadacovidmetricsR/actions)
 <!-- badges: end -->
 
 canadacovidmetricsR provides key metrics regarding COVID-19 situation in
