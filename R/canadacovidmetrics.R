@@ -1,4 +1,3 @@
-library(tidyverse)
 library(httr)
 library(jsonlite)
 
@@ -28,9 +27,9 @@ get_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date
   if (!loc %in% format_loc){
     stop("Value passed for loc argument is not recognized. Must be one of: 'prov', 'canada', or a two-letter capitalized province code")
   }
-    
+
   # Check date format is compatible with API call
-  if (!is.null(date)) {  
+  if (!is.null(date)) {
       date_fmt <- tryCatch(!is.na(as.Date(date, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
       if (!date_fmt){
           stop("Date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
@@ -42,19 +41,19 @@ get_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date
   if (!date_fmt){
     stop("After date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
-    
+
   # Check before date format is compatible with API call
   date_fmt <- tryCatch(!is.na(as.Date(before, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
   if (!date_fmt){
     stop("Before date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
-    
+
   if (!is.null(date)) {
     url <- sprintf("https://api.opencovid.ca/timeseries?stat=cases&loc=%s&date=%s", loc, date)
   } else {
     url <- sprintf("https://api.opencovid.ca/timeseries?stat=cases&loc=%s&after=%s&before=%s", loc, after, before)
   }
-  
+
   raw_json <- httr::GET(url)
   json_string <- httr::content(raw_json, as="text")
   df <- jsonlite::fromJSON(json_string)$cases
@@ -64,7 +63,7 @@ get_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date
   if(datetime_type){
     df$date = as.Date(df$date, format = "%d-%m-%y")
   }
-    
+
   return(df)
 }
 
@@ -89,15 +88,15 @@ get_cases <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date
 #' get_deaths(loc = "prov", date = "2021-09-01")
 
 get_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Date(), datetime_type=TRUE){
-  
+
   # Check province/location format is compatible with API call
   format_loc <- c('canada', 'prov', 'BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NL', 'NB', 'NS', 'PE', 'NT', 'YT', 'NU', 'RP')
   if (!loc %in% format_loc){
     stop("Value passed for loc argument is not recognized. Must be one of: 'prov', 'canada', or a two-letter capitalized province code")
   }
-    
+
   # Check date format is compatible with API call
-  if (!is.null(date)) {  
+  if (!is.null(date)) {
       date_fmt <- tryCatch(!is.na(as.Date(date, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
       if (!date_fmt){
           stop("Date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
@@ -109,19 +108,19 @@ get_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Dat
   if (!date_fmt){
     stop("After date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
-    
+
   # Check before date format is compatible with API call
   date_fmt <- tryCatch(!is.na(as.Date(before, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
   if (!date_fmt){
     stop("Before date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
-    
+
   if (!is.null(date)) {
     url <- sprintf("https://api.opencovid.ca/timeseries?stat=mortality&loc=%s&date=%s", loc, date)
   } else {
     url <- sprintf("https://api.opencovid.ca/timeseries?stat=mortality&loc=%s&after=%s&before=%s", loc, after, before)
   }
-  
+
   raw_json <- httr::GET(url)
   json_string <- httr::content(raw_json, as="text")
   df <- jsonlite::fromJSON(json_string)$mortality
@@ -131,7 +130,7 @@ get_deaths <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys.Dat
   if(datetime_type){
     df$date = as.Date(df$date, format = "%d-%m-%y")
   }
-    
+
   return(df)
 }
 
@@ -161,9 +160,9 @@ get_recoveries <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys
   if (!loc %in% format_loc){
     stop("Value passed for loc argument is not recognized. Must be one of: 'prov', 'canada', or a two-letter capitalized province code")
   }
-    
+
   # Check date format is compatible with API call
-  if (!is.null(date)) {  
+  if (!is.null(date)) {
       date_fmt <- tryCatch(!is.na(as.Date(date, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
       if (!date_fmt){
           stop("Date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
@@ -175,29 +174,29 @@ get_recoveries <- function(loc='prov', date=NULL, after='2020-01-01', before=Sys
   if (!date_fmt){
     stop("After date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
-    
+
   # Check before date format is compatible with API call
   date_fmt <- tryCatch(!is.na(as.Date(before, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
   if (!date_fmt){
     stop("Before date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
-    
+
   if (!is.null(date)) {
     url <- sprintf("https://api.opencovid.ca/timeseries?stat=recovered&loc=%s&date=%s", loc, date)
   } else {
     url <- sprintf("https://api.opencovid.ca/timeseries?stat=recovered&loc=%s&after=%s&before=%s", loc, after, before)
   }
-  
+
   raw_json <- httr::GET(url)
   json_string <- httr::content(raw_json, as="text")
   df <- jsonlite::fromJSON(json_string)$recovered
 
   colnames(df)[which(names(df) == "date_recovered")] <- "date"
-  
+
   if(datetime_type){
     df$date = as.Date(df$date, format = "%d-%m-%y")
   }
-    
+
   return(df)
 }
 
@@ -226,9 +225,9 @@ get_vaccinations <- function(loc='prov', date=NULL, after='2020-01-01', before=S
   if (!loc %in% format_loc){
     stop("Value passed for loc argument is not recognized. Must be one of: 'prov', 'canada', or a two-letter capitalized province code")
   }
-    
+
   # Check date format is compatible with API call
-  if (!is.null(date)) {  
+  if (!is.null(date)) {
       date_fmt <- tryCatch(!is.na(as.Date(date, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
       if (!date_fmt){
           stop("Date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
@@ -240,7 +239,7 @@ get_vaccinations <- function(loc='prov', date=NULL, after='2020-01-01', before=S
   if (!date_fmt){
     stop("After date format is not acceptable. Must be one of 'yyyy-mm-dd or dd-mm-yyyy'")
   }
-    
+
   # Check before date format is compatible with API call
   date_fmt <- tryCatch(!is.na(as.Date(before, tryFormats = c("%Y-%m-%d", "%d-%m-%Y"))), error = function(err) {FALSE})
   if (!date_fmt){
@@ -258,7 +257,7 @@ get_vaccinations <- function(loc='prov', date=NULL, after='2020-01-01', before=S
   df <- jsonlite::fromJSON(json_string)$cvaccine
 
   colnames(df)[which(names(df) == "date_vaccine_completed")] <- "date"
-  
+
   if(datetime_type){
     df$date = as.Date(df$date, format = "%d-%m-%y")
   }
