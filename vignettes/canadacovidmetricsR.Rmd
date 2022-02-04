@@ -1,5 +1,5 @@
 ---
-title: "canadacovidmetricsR"
+title: "Instructions to use canadacovidmetricsR"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{canadacovidmetricsR}
@@ -10,10 +10,58 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
 )
 ```
+
+## Usage
+
+#### To use Ranimalsgonewild package in a project:
 
 ```{r setup}
 library(canadacovidmetricsR)
 ```
+
+This package is designed to provide key metrics regarding COVID-19 situation in Canada at province level using the data from [OpenCovid API](https://opencovid.ca/api/).
+
+The `canadacovidmetricsR` package helps 
+
+## Functions:
+
+Brief introduction:
+
+-   `get_cases` Query total cumulative cases with ability to specify
+    province and date range of returned data.
+
+-   `get_deaths` Query total cumulative deaths with ability to specify
+    province and date range of returned data.
+
+-   `get_recoveries` Query total cumulative recovered cases with ability
+    to specify province and date range of returned data.
+
+-   `get_vaccinations` Query total cumulative vaccine completion with
+    ability to specify province and date range of returned data.
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
