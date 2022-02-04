@@ -16,7 +16,7 @@ Authors@R:
            family = "Collins",
            role = c("aut")))
 Description: canadacovidmetricsR provides key metrics regarding COVID-19 situation in Canada across provinces using the [OpenCovid API](https://opencovid.ca/api/).
-License: MIT + file LICENSE
+License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
