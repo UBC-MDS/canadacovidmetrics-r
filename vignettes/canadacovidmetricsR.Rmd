@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Usage
 
-#### To use Ranimalsgonewild package in a project:
+#### To use canadacovidmetricsR package in a project:
 
 ```{r setup}
 library(canadacovidmetricsR)
@@ -26,23 +26,75 @@ library(canadacovidmetricsR)
 
 This package is designed to provide key metrics regarding COVID-19 situation in Canada at province level using the data from [OpenCovid API](https://opencovid.ca/api/).
 
-The `canadacovidmetricsR` package helps 
+### Brief introduction:
+
+The `canadacovidmetricsR` package helps obtain national or provincial level information on covid cases for a specific time period. There are 4 functions which will return key metrics, including total cumulative cases,
+total cumulative deaths, total cumulative recovered cases and total
+cumulative vaccine completion. This data is returned as an R Dataframe which can be used directly for further analysis, plotting or applying statistical models.
 
 ## Functions:
 
-Brief introduction:
+##### Obtain the total number of cases till date using get_cases():
 
 -   `get_cases` Query total cumulative cases with ability to specify
     province and date range of returned data.
+    
+    Example usage:
+    
+    ``` r
+     library(canadacovidmetricsR)
+     
+     get_cases(loc = "BC", date = "2020-01-31")
+    ```
+##### Obtain the total number of deaths till date using get_deaths():
 
 -   `get_deaths` Query total cumulative deaths with ability to specify
     province and date range of returned data.
+    
+    Example usage:
+    
+    ``` r
+
+     library(canadacovidmetricsR)
+     
+     get_deaths(loc = "BC", date = "2020-01-31")
+    ```
+##### Obtain the total number of recoveries till date using get_recoveries():
 
 -   `get_recoveries` Query total cumulative recovered cases with ability
     to specify province and date range of returned data.
+    
+    Example usage:
+    
+    ``` r
+
+    library(canadacovidmetricsR)
+    
+     get_recoveries(loc = "BC", date = "2020-01-31")
+    ```
+#### Obtain the total vaccinations using the get_vaccinations():
 
 -   `get_vaccinations` Query total cumulative vaccine completion with
     ability to specify province and date range of returned data.
+    
+    Example usage:
+    
+    ``` r
+     
+     library(canadacovidmetricsR)
+     
+     get_vaccinations(loc = "BC", date = "2020-01-31")
+    ```
+    
+## Key Advantages:
+
+-   This package can be used to obtain granular data pertaining to a particular state or province as weel as national wide data.
+-   Can be used by people without any need for coding expertise
+-   There is scope for customization and the data obtained is easily readable.
+  
+    
+    
+
     
 
 
