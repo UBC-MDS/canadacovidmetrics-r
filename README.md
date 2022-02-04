@@ -57,15 +57,57 @@ devtools::install_github("UBC-MDS/canadacovidmetricsR")
 
 ## Usage and Example
 
-This is a basic example which shows you how to solve a common problem:
+##### Obtain the total number of cases till date using get_cases():
 
-``` r
-library(canadacovidmetricsR)
-get_cases(loc = "BC", date = "2020-01-31")
-#> No encoding supplied: defaulting to UTF-8.
-#>   cases cumulative_cases       date province
-#> 1     0                1 2020-01-31       BC
-```
+-   `get_cases` Query total cumulative cases with ability to specify
+    province and date range of returned data.
+
+    Example usage:
+
+    ``` r
+     library(canadacovidmetricsR)
+
+     get_cases(loc = "BC", date = "2020-01-31")
+    ```
+
+    ##### Obtain the total number of deaths till date using get_deaths():
+
+-   `get_deaths` Query total cumulative deaths with ability to specify
+    province and date range of returned data.
+
+    Example usage:
+
+    ``` r
+     library(canadacovidmetricsR)
+
+     get_deaths(loc = "BC", date = "2020-01-31")
+    ```
+
+    ##### Obtain the total number of recoveries till date using get_recoveries():
+
+-   `get_recoveries` Query total cumulative recovered cases with ability
+    to specify province and date range of returned data.
+
+    Example usage:
+
+    ``` r
+    library(canadacovidmetricsR)
+
+     get_recoveries(loc = "BC", date = "2020-01-31")
+    ```
+
+    ##### Obtain the total vaccinations using the get_vaccinations():
+
+-   `get_vaccinations` Query total cumulative vaccine completion with
+    ability to specify province and date range of returned data.
+
+    Example usage:
+
+    ``` r
+     library(canadacovidmetricsR)
+
+     get_vaccinations(loc = "BC", date = "2020-01-31")
+    ```
 
 ## R ecosystem
 
@@ -97,10 +139,16 @@ Document](https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/CONTRIBUTING.
 
 ## License
 
-`canadacovidmetrics` was created by the Contributors. The dependant API from the COVID-19 Canada Open Data Working Group dataset project has adopted the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license, which allows freedom of two primary contributions:
+`canadacovidmetrics` was created by the Contributors. The dependant API
+from the COVID-19 Canada Open Data Working Group dataset project has
+adopted the [Creative Commons Attribution 4.0
+International](https://creativecommons.org/licenses/by/4.0/) license,
+which allows freedom of two primary contributions:
 
 **Sharing** — copy and redistribute the material in any medium or format
-**Adapting** — remix, transform, and build upon the material
-for any purpose, even commercially. 
+**Adapting** — remix, transform, and build upon the material for any
+purpose, even commercially.
 
-As contributors to this community, our package has adopted the same creative commons license, in order to enable anyone to share or adapt the Canada Covid Metrics package in R or Python subject to the license.
+As contributors to this community, our package has adopted the same
+creative commons license, in order to enable anyone to share or adapt
+the Canada Covid Metrics package in R or Python subject to the license.
