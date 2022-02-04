@@ -40,9 +40,12 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
+<<<<<<< main
   <a href="articles/canadacovidmetricsR.html">Get started</a>
 </li>
 <li>
+=======
+>>>>>>> feat: add site build docs from pkgdown
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
@@ -63,6 +66,7 @@
 </h1></div>
 <!-- badges: start -->
 
+<<<<<<< main
 <p>canadacovidmetricsR provides key metrics regarding COVID-19 situation
 in Canada across provinces using the <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>.</p>
 <div class="section level2">
@@ -75,12 +79,20 @@ cases, total cumulative deaths, total cumulative recovered cases and
 total cumulative vaccine completion, using data from <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>. The users may use
 the key metrics to conduct further analyses on COVID-19 situation in
 Canada.</p>
+=======
+<p>canadacovidmetricsR provides key metrics regarding COVID-19 situation in Canada across provinces using the <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>.</p>
+<div class="section level2">
+<h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+</h2>
+<p>This package allows users to obtain key metrics on COVID-19 situation in Canada at national or provincial level for a specific time period. The 4 functions will return key metrics, including total cumulative cases, total cumulative deaths, total cumulative recovered cases and total cumulative vaccine completion, using data from <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>. The users may use the key metrics to conduct further analyses on COVID-19 situation in Canada.</p>
+>>>>>>> feat: add site build docs from pkgdown
 </div>
 <div class="section level2">
 <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
 </h2>
 <p>There are 4 functions in this package:</p>
 <ul>
+<<<<<<< main
 <li><p><code>get_cases</code> Query total cumulative cases with ability
 to specify province and date range of returned data.</p></li>
 <li><p><code>get_deaths</code> Query total cumulative deaths with
@@ -91,6 +103,12 @@ data.</p></li>
 <li><p><code>get_vaccinations</code> Query total cumulative vaccine
 completion with ability to specify province and date range of returned
 data.</p></li>
+=======
+<li><p><code>get_cases</code> Query total cumulative cases with ability to specify province and date range of returned data.</p></li>
+<li><p><code>get_deaths</code> Query total cumulative deaths with ability to specify province and date range of returned data.</p></li>
+<li><p><code>get_recoveries</code> Query total cumulative recovered cases with ability to specify province and date range of returned data.</p></li>
+<li><p><code>get_vaccinations</code> Query total cumulative vaccine completion with ability to specify province and date range of returned data.</p></li>
+>>>>>>> feat: add site build docs from pkgdown
 </ul>
 </div>
 <div class="section level2">
@@ -107,8 +125,12 @@ data.</p></li>
 <div class="section level2">
 <h2 id="usage-and-example">Usage and Example<a class="anchor" aria-label="anchor" href="#usage-and-example"></a>
 </h2>
+<<<<<<< main
 <p>This is a basic example which shows you how to solve a common
 problem:</p>
+=======
+<p>This is a basic example which shows you how to solve a common problem:</p>
+>>>>>>> feat: add site build docs from pkgdown
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span>
 <span class="fu"><a href="reference/get_cases.html">get_cases</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2020-01-31"</span><span class="op">)</span>
@@ -119,6 +141,7 @@ problem:</p>
 <div class="section level2">
 <h2 id="r-ecosystem">R ecosystem<a class="anchor" aria-label="anchor" href="#r-ecosystem"></a>
 </h2>
+<<<<<<< main
 <p>There are several packages for easy access to COVID-19 key metrics or
 data using different APIs, examples include</p>
 <ul>
@@ -140,6 +163,21 @@ repository</a>
 </ul>
 <p>To our knowledge, there is no similar package using <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a> in the R
 ecosystem.</p>
+=======
+<p>There are several packages for easy access to COVID-19 key metrics or data using different APIs, examples include</p>
+<ul>
+<li>
+<a href="https://cran.r-project.org/web/packages/COVID19/index.html" class="external-link">COVID19</a> using <a href="https://coronavirus.jhu.edu/about/" class="external-link">John Hopkins University API</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/covid19.analytics/" class="external-link">COVID19.Analytics</a> using <a href="https://coronavirus.jhu.edu/about/" class="external-link">John Hopkins University API</a>
+</li>
+<li>
+<a href="https://cran.r-project.org/web/packages/covid19br/index.html" class="external-link">covid19br</a> using <a href="https://covid.saude.gov.br/" class="external-link">official Brazilian repository</a>
+</li>
+</ul>
+<p>To our knowledge, there is no similar package using <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a> in the R ecosystem.</p>
+>>>>>>> feat: add site build docs from pkgdown
 </div>
 <div class="section level2">
 <h2 id="contributors">Contributors<a class="anchor" aria-label="anchor" href="#contributors"></a>
@@ -150,13 +188,18 @@ ecosystem.</p>
 <li>Lakshmi Santosha Valli Akella (@valli180)</li>
 <li>Luke Collins (@LukeAC)</li>
 </ul>
+<<<<<<< main
 <p>We welcome and recognize all contributions. Please find the guide for
 contribution in <a href="https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/CONTRIBUTING.md" class="external-link">Contributing
 Document</a>.</p>
+=======
+<p>We welcome and recognize all contributions. Please find the guide for contribution in <a href="https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/CONTRIBUTING.md" class="external-link">Contributing Document</a>.</p>
+>>>>>>> feat: add site build docs from pkgdown
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
+<<<<<<< main
 <p><code>canadacovidmetrics</code> was created by the Contributors. The
 dependant API from the COVID-19 Canada Open Data Working Group dataset
 project has adopted the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">Creative Commons
@@ -169,6 +212,9 @@ upon the material for any purpose, even commercially.</p>
 creative commons license, in order to enable anyone to share or adapt
 the Canada Covid Metrics package in R or Python subject to the
 license.</p>
+=======
+<p><code>canadacovidmetricsR</code> was created by the Contributors. It is licensed under the terms of the MIT license.</p>
+>>>>>>> feat: add site build docs from pkgdown
 </div>
 </div>
   </div>
@@ -178,7 +224,11 @@ license.</p>
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
+<<<<<<< main
 <li><small><a href="https://creativecommons.org/licenses/by/4.0" class="external-link">CC BY 4.0</a></small></li>
+=======
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+>>>>>>> feat: add site build docs from pkgdown
 </ul>
 </div>
 
@@ -221,14 +271,22 @@ license.</p>
 
       <footer><div class="copyright">
   <p></p>
+<<<<<<< main
 <p>Developed by Brandon Lam, Adam Morphy, Valli Akella, Luke
 Collins.</p>
+=======
+<p>Developed by Brandon Lam, Adam Morphy, Valli Akella, Luke Collins.</p>
+>>>>>>> feat: add site build docs from pkgdown
 </div>
 
 <div class="pkgdown">
   <p></p>
+<<<<<<< main
 <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
 2.0.2.</p>
+=======
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+>>>>>>> feat: add site build docs from pkgdown
 </div>
 
       </footer>

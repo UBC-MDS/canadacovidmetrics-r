@@ -4,6 +4,7 @@
     <loc>/404.html</loc>
   </url>
   <url>
+<<<<<<< main
     <loc>/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
@@ -26,6 +27,24 @@
   </url>
   <url>
     <loc>/index.html</loc>
+=======
+    <loc>/authors.html</loc>
+  </url>
+  <url>
+    <loc>/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>/index.html</loc>
+  </url>
+  <url>
+    <loc>/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>/LICENSE.html</loc>
+>>>>>>> feat: add site build docs from pkgdown
   </url>
   <url>
     <loc>/reference/get_cases.html</loc>
