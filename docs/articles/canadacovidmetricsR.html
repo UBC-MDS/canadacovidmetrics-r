@@ -77,19 +77,12 @@
 </h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span></code></pre></div>
-<p>This package is designed to provide key metrics regarding COVID-19
-situation in Canada at province level using the data from <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>.</p>
+<p>This package is designed to provide key metrics regarding COVID-19 situation in Canada at province level using the data from <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="brief-introduction">Brief introduction:<a class="anchor" aria-label="anchor" href="#brief-introduction"></a>
 </h3>
-<p>The <code>canadacovidmetricsR</code> package helps obtain national or
-provincial level information on covid cases for a specific time period.
-There are 4 functions which will return key metrics, including total
-cumulative cases, total cumulative deaths, total cumulative recovered
-cases and total cumulative vaccine completion. This data is returned as
-an R Dataframe which can be used directly for further analysis, plotting
-or applying statistical models.</p>
+<p>The <code>canadacovidmetricsR</code> package helps obtain national or provincial level information on covid cases for a specific time period. There are 4 functions which will return key metrics, including total cumulative cases, total cumulative deaths, total cumulative recovered cases and total cumulative vaccine completion. This data is returned as an R Dataframe which can be used directly for further analysis, plotting or applying statistical models.</p>
 </div>
 </div>
 <div class="section level2">
@@ -100,52 +93,44 @@ or applying statistical models.</p>
 </h5>
 <ul>
 <li>
-<p><code>get_cases</code> Query total cumulative cases with ability
-to specify province and date range of returned data.</p>
+<p><code>get_cases</code> Query total cumulative cases with ability to specify province and date range of returned data.</p>
 <p>Example usage:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span>
 
- <span class="fu"><a href="../reference/get_cases.html">get_cases</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2020-01-31"</span><span class="op">)</span></code></pre></div>
-<h5 id="obtain-the-total-number-of-deaths-till-date-using-get_deaths">Obtain
-the total number of deaths till date using get_deaths():</h5>
+ <span class="fu"><a href="../reference/get_cases.html">get_cases</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
+<span class="co">#&gt;   cases cumulative_cases       date province</span>
+<span class="co">#&gt; 1  1013           100048 2020-03-31       BC</span></code></pre></div>
+<h5 id="obtain-the-total-number-of-deaths-till-date-using-get_deaths">Obtain the total number of deaths till date using get_deaths():</h5>
 </li>
 <li>
-<p><code>get_deaths</code> Query total cumulative deaths with
-ability to specify province and date range of returned data.</p>
+<p><code>get_deaths</code> Query total cumulative deaths with ability to specify province and date range of returned data.</p>
 <p>Example usage:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
- <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span>
-
- <span class="fu"><a href="../reference/get_deaths.html">get_deaths</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2020-01-31"</span><span class="op">)</span></code></pre></div>
-<h5 id="obtain-the-total-number-of-recoveries-till-date-using-get_recoveries">Obtain
-the total number of recoveries till date using
-get_recoveries():</h5>
+ <span class="fu"><a href="../reference/get_deaths.html">get_deaths</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
+<span class="co">#&gt;   cumulative_deaths       date deaths province</span>
+<span class="co">#&gt; 1              1458 2020-03-31      3       BC</span></code></pre></div>
+<h5 id="obtain-the-total-number-of-recoveries-till-date-using-get_recoveries">Obtain the total number of recoveries till date using get_recoveries():</h5>
 </li>
 <li>
-<p><code>get_recoveries</code> Query total cumulative recovered
-cases with ability to specify province and date range of returned
-data.</p>
+<p><code>get_recoveries</code> Query total cumulative recovered cases with ability to specify province and date range of returned data.</p>
 <p>Example usage:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span>
-
- <span class="fu"><a href="../reference/get_recoveries.html">get_recoveries</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2020-01-31"</span><span class="op">)</span></code></pre></div>
-<h4 id="obtain-the-total-vaccinations-using-the-get_vaccinations">Obtain
-the total vaccinations using the get_vaccinations():</h4>
+ <span class="fu"><a href="../reference/get_recoveries.html">get_recoveries</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
+<span class="co">#&gt;   cumulative_recovered       date province recovered</span>
+<span class="co">#&gt; 1                91066 2020-03-31       BC       665</span></code></pre></div>
+<h4 id="obtain-the-total-vaccinations-using-the-get_vaccinations">Obtain the total vaccinations using the get_vaccinations():</h4>
 </li>
 <li>
-<p><code>get_vaccinations</code> Query total cumulative vaccine
-completion with ability to specify province and date range of returned
-data.</p>
+<p><code>get_vaccinations</code> Query total cumulative vaccine completion with ability to specify province and date range of returned data.</p>
 <p>Example usage:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
- <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span>
-
- <span class="fu"><a href="../reference/get_vaccinations.html">get_vaccinations</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2020-01-31"</span><span class="op">)</span></code></pre></div>
+ <span class="fu"><a href="../reference/get_vaccinations.html">get_vaccinations</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
+<span class="co">#&gt;   cumulative_cvaccine cvaccine       date province</span>
+<span class="co">#&gt; 1               87351       32 2020-03-31       BC</span></code></pre></div>
 </li>
 </ul>
 </div>
@@ -154,11 +139,9 @@ data.</p>
 <h2 id="key-advantages">Key Advantages:<a class="anchor" aria-label="anchor" href="#key-advantages"></a>
 </h2>
 <ul>
-<li>This package can be used to obtain granular data pertaining to a
-particular state or province as weel as national wide data.</li>
+<li>This package can be used to obtain granular data pertaining to a particular state or province as weel as national wide data.</li>
 <li>Can be used by people without any need for coding expertise</li>
-<li>There is scope for customization and the data obtained is easily
-readable.</li>
+<li>There is scope for customization and the data obtained is easily readable.</li>
 </ul>
 </div>
   </div>
@@ -175,14 +158,12 @@ readable.</li>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Brandon Lam, Adam Morphy, Valli Akella, Luke
-Collins.</p>
+<p>Developed by Brandon Lam, Adam Morphy, Valli Akella, Luke Collins.</p>
 </div>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
