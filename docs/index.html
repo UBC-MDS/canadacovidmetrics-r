@@ -63,83 +63,104 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>canadacovidmetricsR provides key metrics regarding COVID-19 situation
-in Canada across provinces using the <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>.</p>
+<p>canadacovidmetricsR provides key metrics regarding COVID-19 situation in Canada across provinces using the <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>.</p>
 <div class="section level2">
 <h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
-<p>This package allows users to obtain key metrics on COVID-19 situation
-in Canada at national or provincial level for a specific time period.
-The 4 functions will return key metrics, including total cumulative
-cases, total cumulative deaths, total cumulative recovered cases and
-total cumulative vaccine completion, using data from <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>. The users may use
-the key metrics to conduct further analyses on COVID-19 situation in
-Canada.</p>
+<p>This package allows users to obtain key metrics on COVID-19 situation in Canada at national or provincial level for a specific time period. The 4 functions will return key metrics, including total cumulative cases, total cumulative deaths, total cumulative recovered cases and total cumulative vaccine completion, using data from <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>. The users may use the key metrics to conduct further analyses on COVID-19 situation in Canada.</p>
 </div>
 <div class="section level2">
 <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
 </h2>
 <p>There are 4 functions in this package:</p>
 <ul>
-<li><p><code>get_cases</code> Query total cumulative cases with ability
-to specify province and date range of returned data.</p></li>
-<li><p><code>get_deaths</code> Query total cumulative deaths with
-ability to specify province and date range of returned data.</p></li>
-<li><p><code>get_recoveries</code> Query total cumulative recovered
-cases with ability to specify province and date range of returned
-data.</p></li>
-<li><p><code>get_vaccinations</code> Query total cumulative vaccine
-completion with ability to specify province and date range of returned
-data.</p></li>
+<li><p><code>get_cases</code> Query total cumulative cases with ability to specify province and date range of returned data.</p></li>
+<li><p><code>get_deaths</code> Query total cumulative deaths with ability to specify province and date range of returned data.</p></li>
+<li><p><code>get_recoveries</code> Query total cumulative recovered cases with ability to specify province and date range of returned data.</p></li>
+<li><p><code>get_vaccinations</code> Query total cumulative vaccine completion with ability to specify province and date range of returned data.</p></li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of canadacovidmetricsR from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
+<p>You can install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"canadacovidmetricsR"</span><span class="op">)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"UBC-MDS/canadacovidmetricsR"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage-and-example">Usage and Example<a class="anchor" aria-label="anchor" href="#usage-and-example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common
-problem:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="obtain-the-total-number-of-cases-till-date-using-get_cases">Obtain the total number of cases till date using get_cases():<a class="anchor" aria-label="anchor" href="#obtain-the-total-number-of-cases-till-date-using-get_cases"></a>
+</h3>
+<ul>
+<li>
+<code>get_cases</code> Query total cumulative cases with ability to specify province and date range of returned data.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span>
-<span class="fu"><a href="reference/get_cases.html">get_cases</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2020-01-31"</span><span class="op">)</span>
+<span class="fu"><a href="reference/get_cases.html">get_cases</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
 <span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
 <span class="co">#&gt;   cases cumulative_cases       date province</span>
-<span class="co">#&gt; 1     0                1 2020-01-31       BC</span></code></pre></div>
+<span class="co">#&gt; 1  1013           100048 2020-03-31       BC</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="obtain-the-total-number-of-deaths-till-date-using-get_deaths">Obtain the total number of deaths till date using get_deaths():<a class="anchor" aria-label="anchor" href="#obtain-the-total-number-of-deaths-till-date-using-get_deaths"></a>
+</h3>
+<ul>
+<li>
+<code>get_deaths</code> Query total cumulative deaths with ability to specify province and date range of returned data.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/get_deaths.html">get_deaths</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
+<span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
+<span class="co">#&gt;   cumulative_deaths       date deaths province</span>
+<span class="co">#&gt; 1              1458 2020-03-31      3       BC</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="obtain-the-total-number-of-recoveries-till-date-using-get_recoveries">Obtain the total number of recoveries till date using get_recoveries():<a class="anchor" aria-label="anchor" href="#obtain-the-total-number-of-recoveries-till-date-using-get_recoveries"></a>
+</h3>
+<ul>
+<li>
+<code>get_recoveries</code> Query total cumulative recovered cases with ability to specify province and date range of returned data.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/get_recoveries.html">get_recoveries</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
+<span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
+<span class="co">#&gt;   cumulative_recovered       date province recovered</span>
+<span class="co">#&gt; 1                91066 2020-03-31       BC       665</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="obtain-the-total-vaccinations-using-the-get_vaccinations">Obtain the total vaccinations using the get_vaccinations():<a class="anchor" aria-label="anchor" href="#obtain-the-total-vaccinations-using-the-get_vaccinations"></a>
+</h3>
+<ul>
+<li>
+<code>get_vaccinations</code> Query total cumulative vaccine completion with ability to specify province and date range of returned data.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/get_vaccinations.html">get_vaccinations</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
+<span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
+<span class="co">#&gt;   cumulative_cvaccine cvaccine       date province</span>
+<span class="co">#&gt; 1               87351       32 2020-03-31       BC</span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="r-ecosystem">R ecosystem<a class="anchor" aria-label="anchor" href="#r-ecosystem"></a>
 </h2>
-<p>There are several packages for easy access to COVID-19 key metrics or
-data using different APIs, examples include</p>
+<p>There are several packages for easy access to COVID-19 key metrics or data using different APIs, examples include</p>
 <ul>
 <li>
-<a href="https://cran.r-project.org/web/packages/COVID19/index.html" class="external-link">COVID19</a>
-using <a href="https://coronavirus.jhu.edu/about/" class="external-link">John Hopkins
-University API</a>
+<a href="https://cran.r-project.org/web/packages/COVID19/index.html" class="external-link">COVID19</a> using <a href="https://coronavirus.jhu.edu/about/" class="external-link">John Hopkins University API</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/covid19.analytics/" class="external-link">COVID19.Analytics</a>
-using <a href="https://coronavirus.jhu.edu/about/" class="external-link">John Hopkins
-University API</a>
+<a href="https://cran.r-project.org/web/packages/covid19.analytics/" class="external-link">COVID19.Analytics</a> using <a href="https://coronavirus.jhu.edu/about/" class="external-link">John Hopkins University API</a>
 </li>
 <li>
-<a href="https://cran.r-project.org/web/packages/covid19br/index.html" class="external-link">covid19br</a>
-using <a href="https://covid.saude.gov.br/" class="external-link">official Brazilian
-repository</a>
+<a href="https://cran.r-project.org/web/packages/covid19br/index.html" class="external-link">covid19br</a> using <a href="https://covid.saude.gov.br/" class="external-link">official Brazilian repository</a>
 </li>
 </ul>
-<p>To our knowledge, there is no similar package using <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a> in the R
-ecosystem.</p>
+<p>To our knowledge, there is no similar package using <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a> in the R ecosystem.</p>
 </div>
 <div class="section level2">
 <h2 id="contributors">Contributors<a class="anchor" aria-label="anchor" href="#contributors"></a>
@@ -150,25 +171,14 @@ ecosystem.</p>
 <li>Lakshmi Santosha Valli Akella (@valli180)</li>
 <li>Luke Collins (@LukeAC)</li>
 </ul>
-<p>We welcome and recognize all contributions. Please find the guide for
-contribution in <a href="https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/CONTRIBUTING.md" class="external-link">Contributing
-Document</a>.</p>
+<p>We welcome and recognize all contributions. Please find the guide for contribution in <a href="https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/.github/CONTRIBUTING.md" class="external-link">Contributing Document</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p><code>canadacovidmetrics</code> was created by the Contributors. The
-dependant API from the COVID-19 Canada Open Data Working Group dataset
-project has adopted the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">Creative Commons
-Attribution 4.0 International</a> license, which allows freedom of two
-primary contributions:</p>
-<p><strong>Sharing</strong> — copy and redistribute the material in any
-medium or format <strong>Adapting</strong> — remix, transform, and build
-upon the material for any purpose, even commercially.</p>
-<p>As contributors to this community, our package has adopted the same
-creative commons license, in order to enable anyone to share or adapt
-the Canada Covid Metrics package in R or Python subject to the
-license.</p>
+<p><code>canadacovidmetrics</code> was created by the Contributors. The dependant API from the COVID-19 Canada Open Data Working Group dataset project has adopted the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">Creative Commons Attribution 4.0 International</a> license, which allows freedom of two primary contributions:</p>
+<p><strong>Sharing</strong> — copy and redistribute the material in any medium or format <strong>Adapting</strong> — remix, transform, and build upon the material for any purpose, even commercially.</p>
+<p>As contributors to this community, our package has adopted the same creative commons license, in order to enable anyone to share or adapt the Canada Covid Metrics package in R or Python subject to the license.</p>
 </div>
 </div>
   </div>
@@ -221,14 +231,12 @@ license.</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Brandon Lam, Adam Morphy, Valli Akella, Luke
-Collins.</p>
+<p>Developed by Brandon Lam, Adam Morphy, Valli Akella, Luke Collins.</p>
 </div>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
