@@ -41,14 +41,8 @@ There are 4 functions in this package:
 
 ## Installation
 
-You can install the released version of canadacovidmetricsR from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("canadacovidmetricsR")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -57,57 +51,54 @@ devtools::install_github("UBC-MDS/canadacovidmetricsR")
 
 ## Usage and Example
 
-##### Obtain the total number of cases till date using get_cases():
+### Obtain the total number of cases till date using get_cases():
 
 -   `get_cases` Query total cumulative cases with ability to specify
     province and date range of returned data.
 
-    Example usage:
+``` r
+library(canadacovidmetricsR)
+get_cases(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cases cumulative_cases       date province
+#> 1  1013           100048 2020-03-31       BC
+```
 
-    ``` r
-     library(canadacovidmetricsR)
-
-     get_cases(loc = "BC", date = "2020-01-31")
-    ```
-
-    ##### Obtain the total number of deaths till date using get_deaths():
+### Obtain the total number of deaths till date using get_deaths():
 
 -   `get_deaths` Query total cumulative deaths with ability to specify
     province and date range of returned data.
 
-    Example usage:
+``` r
+get_deaths(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cumulative_deaths       date deaths province
+#> 1              1458 2020-03-31      3       BC
+```
 
-    ``` r
-     library(canadacovidmetricsR)
-
-     get_deaths(loc = "BC", date = "2020-01-31")
-    ```
-
-    ##### Obtain the total number of recoveries till date using get_recoveries():
+### Obtain the total number of recoveries till date using get_recoveries():
 
 -   `get_recoveries` Query total cumulative recovered cases with ability
     to specify province and date range of returned data.
 
-    Example usage:
+``` r
+get_recoveries(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cumulative_recovered       date province recovered
+#> 1                91066 2020-03-31       BC       665
+```
 
-    ``` r
-    library(canadacovidmetricsR)
-
-     get_recoveries(loc = "BC", date = "2020-01-31")
-    ```
-
-    ##### Obtain the total vaccinations using the get_vaccinations():
+### Obtain the total vaccinations using the get_vaccinations():
 
 -   `get_vaccinations` Query total cumulative vaccine completion with
     ability to specify province and date range of returned data.
 
-    Example usage:
-
-    ``` r
-     library(canadacovidmetricsR)
-
-     get_vaccinations(loc = "BC", date = "2020-01-31")
-    ```
+``` r
+get_vaccinations(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cumulative_cvaccine cvaccine       date province
+#> 1               87351       32 2020-03-31       BC
+```
 
 ## R ecosystem
 
