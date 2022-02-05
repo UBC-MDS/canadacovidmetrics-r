@@ -54,18 +54,18 @@ devtools::install_github("UBC-MDS/canadacovidmetricsR")
 -   `get_cases` Query total cumulative cases with ability to specify
     province and date range of returned data.
     
-``` r
+```{r example}
 library(canadacovidmetricsR)
-get_cases(loc = "BC", date = "2020-01-31")
-```
+get_cases(loc = "BC", date = "2021-03-31")
+``` 
 
 ### Obtain the total number of deaths till date using get_deaths():
 
 -   `get_deaths` Query total cumulative deaths with ability to specify
     province and date range of returned data.
     
-``` r
-get_deaths(loc = "BC", date = "2020-01-31")
+```{r}
+get_deaths(loc = "BC", date = "2021-03-31")
 ```
 
 ### Obtain the total number of recoveries till date using get_recoveries():
@@ -73,8 +73,8 @@ get_deaths(loc = "BC", date = "2020-01-31")
 -   `get_recoveries` Query total cumulative recovered cases with ability
     to specify province and date range of returned data.
 
-``` r
-get_recoveries(loc = "BC", date = "2020-01-31")
+```{r}
+get_recoveries(loc = "BC", date = "2021-03-31")
 ```
 
 ### Obtain the total vaccinations using the get_vaccinations():
@@ -82,9 +82,8 @@ get_recoveries(loc = "BC", date = "2020-01-31")
 -   `get_vaccinations` Query total cumulative vaccine completion with
     ability to specify province and date range of returned data.
 
-``` r
-library(canadacovidmetricsR)
-get_vaccinations(loc = "BC", date = "2020-01-31")
+```{r}
+get_vaccinations(loc = "BC", date = "2021-03-31")
 ```
 
 ## R ecosystem

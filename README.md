@@ -58,7 +58,10 @@ devtools::install_github("UBC-MDS/canadacovidmetricsR")
 
 ``` r
 library(canadacovidmetricsR)
-get_cases(loc = "BC", date = "2020-01-31")
+get_cases(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cases cumulative_cases       date province
+#> 1  1013           100048 2020-03-31       BC
 ```
 
 ### Obtain the total number of deaths till date using get_deaths():
@@ -67,7 +70,10 @@ get_cases(loc = "BC", date = "2020-01-31")
     province and date range of returned data.
 
 ``` r
-get_deaths(loc = "BC", date = "2020-01-31")
+get_deaths(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cumulative_deaths       date deaths province
+#> 1              1458 2020-03-31      3       BC
 ```
 
 ### Obtain the total number of recoveries till date using get_recoveries():
@@ -76,7 +82,10 @@ get_deaths(loc = "BC", date = "2020-01-31")
     to specify province and date range of returned data.
 
 ``` r
-get_recoveries(loc = "BC", date = "2020-01-31")
+get_recoveries(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cumulative_recovered       date province recovered
+#> 1                91066 2020-03-31       BC       665
 ```
 
 ### Obtain the total vaccinations using the get_vaccinations():
@@ -85,8 +94,10 @@ get_recoveries(loc = "BC", date = "2020-01-31")
     ability to specify province and date range of returned data.
 
 ``` r
-library(canadacovidmetricsR)
-get_vaccinations(loc = "BC", date = "2020-01-31")
+get_vaccinations(loc = "BC", date = "2021-03-31")
+#> No encoding supplied: defaulting to UTF-8.
+#>   cumulative_cvaccine cvaccine       date province
+#> 1               87351       32 2020-03-31       BC
 ```
 
 ## R ecosystem
