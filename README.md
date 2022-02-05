@@ -135,7 +135,7 @@ API](https://opencovid.ca/api/) in the R ecosystem.
 
 We welcome and recognize all contributions. Please find the guide for
 contribution in [Contributing
-Document](https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/CONTRIBUTING.md).
+Document](https://github.com/UBC-MDS/canadacovidmetricsR/blob/main/.github/CONTRIBUTING.md).
 
 ## License
 
