@@ -78,7 +78,7 @@ get_deaths(loc = "BC", date = "2021-03-31")
 
 ### Obtain the number of new reported recoveries on a particular date in British Columbia using get_recoveries():
 
--   `get_deaths` Query reported recoveries with ability to specify
+-   `get_recoveries` Query reported recoveries with ability to specify
     location grouping and date range of returned data.
 
 ``` r
@@ -90,7 +90,7 @@ get_recoveries(loc = "BC", date = "2021-03-31")
 
 ### Obtain the number of new reported vaccinations on a particular date in British Columbia using get_vaccinations():
 
--   `get_deaths` Query reported vaccinations with ability to specify
+-   `get_veccinations` Query reported vaccinations with ability to specify
     location grouping and date range of returned data.
 
 ``` r
