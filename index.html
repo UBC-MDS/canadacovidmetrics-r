@@ -67,17 +67,17 @@
 <div class="section level2">
 <h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
-<p>This package allows users to obtain key metrics on COVID-19 situation in Canada at national or provincial level for a specific time period. The 4 functions will return key metrics, including total cumulative cases, total cumulative deaths, total cumulative recovered cases and total cumulative vaccine completion, using data from <a href="https://opencovid.ca/api/" class="external-link">OpenCovid API</a>. The users may use the key metrics to conduct further analyses on COVID-19 situation in Canada.</p>
+<p>This package allows users to obtain key metrics on the COVID-19 situation in Canada at a national or provincial level for a specific time period. The package contains 4 functions, each of which returns a key metric relating to COVID-19 in Canada. The 4 metrics are: reported cases, reported deaths, reported recoveries, and reported vaccinations. The results returned relect both point-in-time as well as cumulative quantities. This package leverages <a href="https://opencovid.ca/api/" class="external-link">OpenCovidAPI</a>, which exposes reliable data to be consumed by users of this package.</p>
 </div>
 <div class="section level2">
 <h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
 </h2>
 <p>There are 4 functions in this package:</p>
 <ul>
-<li><p><code>get_cases</code> Query total cumulative cases with ability to specify province and date range of returned data.</p></li>
-<li><p><code>get_deaths</code> Query total cumulative deaths with ability to specify province and date range of returned data.</p></li>
-<li><p><code>get_recoveries</code> Query total cumulative recovered cases with ability to specify province and date range of returned data.</p></li>
-<li><p><code>get_vaccinations</code> Query total cumulative vaccine completion with ability to specify province and date range of returned data.</p></li>
+<li><p><code>get_cases</code> Query reported cases with ability to specify location grouping and date range of returned data.</p></li>
+<li><p><code>get_deaths</code> Query reported deaths with ability to specify location grouping and date range of returned data.</p></li>
+<li><p><code>get_recoveries</code> Query reported recoveries with ability to specify location grouping and date range of returned data.</p></li>
+<li><p><code>get_vaccinations</code> Query reported vaccinations with ability to specify location grouping and date range of returned data.</p></li>
 </ul>
 </div>
 <div class="section level2">
@@ -92,11 +92,11 @@
 <h2 id="usage-and-example">Usage and Example<a class="anchor" aria-label="anchor" href="#usage-and-example"></a>
 </h2>
 <div class="section level3">
-<h3 id="obtain-the-total-number-of-cases-till-date-using-get_cases">Obtain the total number of cases till date using get_cases():<a class="anchor" aria-label="anchor" href="#obtain-the-total-number-of-cases-till-date-using-get_cases"></a>
+<h3 id="obtain-the-number-of-new-reported-cases-on-a-particular-date-in-british-columbia-using-get_cases">Obtain the number of new reported cases on a particular date in British Columbia using get_cases():<a class="anchor" aria-label="anchor" href="#obtain-the-number-of-new-reported-cases-on-a-particular-date-in-british-columbia-using-get_cases"></a>
 </h3>
 <ul>
 <li>
-<code>get_cases</code> Query total cumulative cases with ability to specify province and date range of returned data.</li>
+<code>get_cases</code> Query reported cases with ability to specify location grouping and date range of returned data.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">canadacovidmetricsR</span><span class="op">)</span>
@@ -106,11 +106,11 @@
 <span class="co">#&gt; 1  1013           100048 2020-03-31       BC</span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="obtain-the-total-number-of-deaths-till-date-using-get_deaths">Obtain the total number of deaths till date using get_deaths():<a class="anchor" aria-label="anchor" href="#obtain-the-total-number-of-deaths-till-date-using-get_deaths"></a>
+<h3 id="obtain-the-number-of-new-reported-deaths-on-a-particular-date-in-british-columbia-using-get_deaths">Obtain the number of new reported deaths on a particular date in British Columbia using get_deaths():<a class="anchor" aria-label="anchor" href="#obtain-the-number-of-new-reported-deaths-on-a-particular-date-in-british-columbia-using-get_deaths"></a>
 </h3>
 <ul>
 <li>
-<code>get_deaths</code> Query total cumulative deaths with ability to specify province and date range of returned data.</li>
+<code>get_deaths</code> Query reported deaths with ability to specify location grouping and date range of returned data.</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/get_deaths.html">get_deaths</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
@@ -119,24 +119,24 @@
 <span class="co">#&gt; 1              1458 2020-03-31      3       BC</span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="obtain-the-total-number-of-recoveries-till-date-using-get_recoveries">Obtain the total number of recoveries till date using get_recoveries():<a class="anchor" aria-label="anchor" href="#obtain-the-total-number-of-recoveries-till-date-using-get_recoveries"></a>
+<h3 id="obtain-the-number-of-new-reported-recoveries-on-a-particular-date-in-british-columbia-using-get_recoveries">Obtain the number of new reported recoveries on a particular date in British Columbia using get_recoveries():<a class="anchor" aria-label="anchor" href="#obtain-the-number-of-new-reported-recoveries-on-a-particular-date-in-british-columbia-using-get_recoveries"></a>
 </h3>
 <ul>
 <li>
-<code>get_recoveries</code> Query total cumulative recovered cases with ability to specify province and date range of returned data.</li>
+<code>get_deaths</code> Query reported recoveries with ability to specify location grouping and date range of returned data.</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/get_recoveries.html">get_recoveries</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
 <span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
-<span class="co">#&gt;   cumulative_recovered       date province recovered</span>
-<span class="co">#&gt; 1                91066 2020-03-31       BC       665</span></code></pre></div>
+<span class="co">#&gt;   cumulative_recoveries date recoveries province</span>
+<span class="co">#&gt; 1                  1458 2020-03-31      3       BC</span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="obtain-the-total-vaccinations-using-the-get_vaccinations">Obtain the total vaccinations using the get_vaccinations():<a class="anchor" aria-label="anchor" href="#obtain-the-total-vaccinations-using-the-get_vaccinations"></a>
+<h3 id="obtain-the-number-of-new-reported-vaccinations-on-a-particular-date-in-british-columbia-using-get_vaccinations">Obtain the number of new reported vaccinations on a particular date in British Columbia using get_vaccinations():<a class="anchor" aria-label="anchor" href="#obtain-the-number-of-new-reported-vaccinations-on-a-particular-date-in-british-columbia-using-get_vaccinations"></a>
 </h3>
 <ul>
 <li>
-<code>get_vaccinations</code> Query total cumulative vaccine completion with ability to specify province and date range of returned data.</li>
+<code>get_deaths</code> Query reported vaccinations with ability to specify location grouping and date range of returned data.</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/get_vaccinations.html">get_vaccinations</a></span><span class="op">(</span>loc <span class="op">=</span> <span class="st">"BC"</span>, date <span class="op">=</span> <span class="st">"2021-03-31"</span><span class="op">)</span>
