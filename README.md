@@ -15,29 +15,29 @@ API](https://opencovid.ca/api/).
 
 ## Summary
 
-This package allows users to obtain key metrics on COVID-19 situation in
-Canada at national or provincial level for a specific time period. The 4
-functions will return key metrics, including total cumulative cases,
-total cumulative deaths, total cumulative recovered cases and total
-cumulative vaccine completion, using data from [OpenCovid
-API](https://opencovid.ca/api/). The users may use the key metrics to
-conduct further analyses on COVID-19 situation in Canada.
+This package allows users to obtain key metrics on the COVID-19 situation in
+Canada at a national or provincial level for a specific time period. The package
+contains 4 functions, each of which returns a key metric relating to COVID-19 in Canada.
+The 4 metrics are: reported cases, reported deaths, reported recoveries, and reported vaccinations.
+The results returned relect both point-in-time as well as cumulative quantities.
+This package leverages [OpenCovidAPI](https://opencovid.ca/api/), which exposes reliable data
+to be consumed by users of this package.
 
 ## Functions
 
 There are 4 functions in this package:
 
--   `get_cases` Query total cumulative cases with ability to specify
-    province and date range of returned data.
+-   `get_cases` Query reported cases with ability to specify
+    location grouping and date range of returned data.
 
--   `get_deaths` Query total cumulative deaths with ability to specify
-    province and date range of returned data.
+-   `get_deaths` Query reported deaths with ability to specify
+    location grouping and date range of returned data.
 
--   `get_recoveries` Query total cumulative recovered cases with ability
-    to specify province and date range of returned data.
+-   `get_recoveries` Query reported recoveries with ability to specify
+    location grouping and date range of returned data.
 
--   `get_vaccinations` Query total cumulative vaccine completion with
-    ability to specify province and date range of returned data.
+-   `get_vaccinations` Query reported vaccinations with ability to specify
+    location grouping and date range of returned data.
 
 ## Installation
 
@@ -51,10 +51,10 @@ devtools::install_github("UBC-MDS/canadacovidmetricsR")
 
 ## Usage and Example
 
-### Obtain the total number of cases till date using get_cases():
+### Obtain the number of new reported cases on a particular date in British Columbia using get_cases():
 
--   `get_cases` Query total cumulative cases with ability to specify
-    province and date range of returned data.
+-   `get_cases` Query reported cases with ability to specify
+    location grouping and date range of returned data.
 
 ``` r
 library(canadacovidmetricsR)
@@ -64,10 +64,10 @@ get_cases(loc = "BC", date = "2021-03-31")
 #> 1  1013           100048 2020-03-31       BC
 ```
 
-### Obtain the total number of deaths till date using get_deaths():
+### Obtain the number of new reported deaths on a particular date in British Columbia using get_deaths():
 
--   `get_deaths` Query total cumulative deaths with ability to specify
-    province and date range of returned data.
+-   `get_deaths` Query reported deaths with ability to specify
+    location grouping and date range of returned data.
 
 ``` r
 get_deaths(loc = "BC", date = "2021-03-31")
@@ -76,22 +76,22 @@ get_deaths(loc = "BC", date = "2021-03-31")
 #> 1              1458 2020-03-31      3       BC
 ```
 
-### Obtain the total number of recoveries till date using get_recoveries():
+### Obtain the number of new reported recoveries on a particular date in British Columbia using get_recoveries():
 
--   `get_recoveries` Query total cumulative recovered cases with ability
-    to specify province and date range of returned data.
+-   `get_deaths` Query reported recoveries with ability to specify
+    location grouping and date range of returned data.
 
 ``` r
 get_recoveries(loc = "BC", date = "2021-03-31")
 #> No encoding supplied: defaulting to UTF-8.
-#>   cumulative_recovered       date province recovered
-#> 1                91066 2020-03-31       BC       665
+#>   cumulative_recoveries date recoveries province
+#> 1                  1458 2020-03-31      3       BC
 ```
 
-### Obtain the total vaccinations using the get_vaccinations():
+### Obtain the number of new reported vaccinations on a particular date in British Columbia using get_vaccinations():
 
--   `get_vaccinations` Query total cumulative vaccine completion with
-    ability to specify province and date range of returned data.
+-   `get_deaths` Query reported vaccinations with ability to specify
+    location grouping and date range of returned data.
 
 ``` r
 get_vaccinations(loc = "BC", date = "2021-03-31")
@@ -99,6 +99,7 @@ get_vaccinations(loc = "BC", date = "2021-03-31")
 #>   cumulative_cvaccine cvaccine       date province
 #> 1               87351       32 2020-03-31       BC
 ```
+
 
 ## R ecosystem
 
