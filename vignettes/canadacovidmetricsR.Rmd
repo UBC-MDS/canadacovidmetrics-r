@@ -41,10 +41,10 @@ cumulative vaccine completion. This data is returned as an R Dataframe which can
     
     Example usage:
     
-    ``` r
+    ```{r}
      library(canadacovidmetricsR)
      
-     get_cases(loc = "BC", date = "2020-01-31")
+     get_cases(loc = "BC", date = "2021-03-31")
     ```
 ##### Obtain the total number of deaths till date using get_deaths():
 
@@ -53,11 +53,9 @@ cumulative vaccine completion. This data is returned as an R Dataframe which can
     
     Example usage:
     
-    ``` r
-
-     library(canadacovidmetricsR)
+    ```{r}
      
-     get_deaths(loc = "BC", date = "2020-01-31")
+     get_deaths(loc = "BC", date = "2021-03-31")
     ```
 ##### Obtain the total number of recoveries till date using get_recoveries():
 
@@ -66,11 +64,9 @@ cumulative vaccine completion. This data is returned as an R Dataframe which can
     
     Example usage:
     
-    ``` r
-
-    library(canadacovidmetricsR)
-    
-     get_recoveries(loc = "BC", date = "2020-01-31")
+    ```{r}
+   
+     get_recoveries(loc = "BC", date = "2021-03-31")
     ```
 #### Obtain the total vaccinations using the get_vaccinations():
 
@@ -79,11 +75,9 @@ cumulative vaccine completion. This data is returned as an R Dataframe which can
     
     Example usage:
     
-    ``` r
+    ```{r}
      
-     library(canadacovidmetricsR)
-     
-     get_vaccinations(loc = "BC", date = "2020-01-31")
+     get_vaccinations(loc = "BC", date = "2021-03-31")
     ```
     
 ## Key Advantages:
